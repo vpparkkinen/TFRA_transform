@@ -1,7 +1,3 @@
-# by Veli-Pekka Parkkinen (University of Bergen) June 2 2022
-# Totally fuzzy and relative alternative (TFRA) specification, Filippone A,
-# Cheli B, D'Agostino A (2001)
-
 TFRA_transform <- function(column){
   tbl <- as.data.frame(table(column))
   res <- vector("numeric", nrow(tbl))
@@ -25,14 +21,3 @@ TFRA_transform <- function(column){
 }
 
 
-## Examples #####
-TFRA_transform(c(2,2,2,2,3,1,1))
-
-
-
-fake_data <- data.frame(A=c(2,2,2,2,3,1,1), B=c(2,2,3,2,3,2,2))
-fake_data
-
-tr_dat <- as.data.frame(apply(fake_data, 2, TFRA_transform))
-
-colMeans(tr_dat) ## this should always be 0.5 for all columns
